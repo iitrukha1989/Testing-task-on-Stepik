@@ -44,30 +44,11 @@ def exam_file_2():
                     output_file.write(tmp_value)
 
 
-def exam_file_3():
-    check_value = 0
-    res_list = list()
-    with open('test.txt', 'rt', encoding='utf-8') as file_value:
-        data_value = file_value.readlines()
-        for row_index in range(len(data_value)):
-            if data_value[row_index][0] == '#':
-                check_value = 1
-            if data_value[row_index][:3] == 'def' and check_value == 0:
-                res_list.append(data_value[row_index]
-                                [4:data_value[row_index].find('(')])
-            if data_value[row_index][0] != '#' and data_value[row_index][:3] == 'def':
-                check_value = 0
-    if len(res_list) == 0:
-        res_list.append('Best Programming Team')
-    return res_list
-
-
 def main():
     print(*exam_file_1('data.txt'), sep='\n')
     print(*exam_file_1('stepik.txt'), sep='\n')
     print(*exam_file_1('beegreek.txt'), sep='\n')
     print(*exam_file_2(), sep='\n')
-    print(*exam_file_3(), sep='\n')
 
 
 if __name__ == '__main__':
